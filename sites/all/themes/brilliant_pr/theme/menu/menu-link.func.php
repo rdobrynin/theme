@@ -9,25 +9,14 @@
  */
 function brilliant_pr_menu_link(array $variables) {
   $element = $variables['element'];
-
-
-
-
   $sub_menu = '';
-
-
   if ($element['#below']) {
-
-
-
     // Prevent dropdown functions from being added to management menu so it
     // does not affect the navbar module.
     if (($element['#theme'] == 'menu_link__navigation') && (module_exists('navbar'))) {
       $element['#title'] .= '<span class="caret-icon">'._bootstrap_icon('chevron-down').'</span>';
       $sub_menu = drupal_render($element['#below']);
     }
-
-
     elseif($element['#theme'] == 'menu_link__navigation' && !empty($element['#original_link']['depth'])
       && ($element['#original_link']['depth'] == 1)) {
       unset($element['#below']['#theme_wrappers']);
@@ -56,8 +45,6 @@ function brilliant_pr_menu_link(array $variables) {
   if (($element['#href'] == $_GET['q'] || ($element['#href'] == '<front>' && drupal_is_front_page())) && (empty($element['#localized_options']['language']))) {
     $element['#attributes']['class'][] = 'active';
   }
-
-
 
   if($element["#theme"] == 'menu_link__menu_section_menu'){
     if($element["#href"] == '<front>'){
