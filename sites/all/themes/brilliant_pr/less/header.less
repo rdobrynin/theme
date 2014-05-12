@@ -1,1 +1,152 @@
 // Insert your styling here.
+.navbar-default {
+  margin-bottom: 0;
+  border-bottom: 0;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(50, 50, 50, 0.5);
+     -moz-box-shadow: 0px 1px 3px 0px rgba(50, 50, 50, 0.5);
+          box-shadow: 0px 1px 3px 0px rgba(50, 50, 50, 0.5);
+  .navbar-header > a.name.navbar-brand {
+    display: none;
+  }
+  .navbar-nav {
+    float: right;
+    font-size: @font-size-base;
+    text-transform: uppercase;
+    &.secondary {
+      > li > a {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      font-size: ceil(@font-size-base * 0.85);
+      text-transform: capitalize;
+    }
+    > li > a {
+      color: #464448;
+      padding-bottom: 37px;
+      padding-top: 37px;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        font-weight: 700;
+        color: #2f3139;
+        background-color: transparent;
+      }
+      > span.icon {
+        margin-right: 5px;
+      }
+    }
+    > .active > a,
+    > .active > a:hover,
+    > .active > a:focus {
+        text-decoration: none;
+        font-weight: 700;
+        color: #2f3139;
+        background-color: transparent;
+      text-shadow:none;
+    }
+    
+  }
+
+  .navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+    text-decoration: none;
+    font-weight: normal;
+    color: #2f3139;
+    background-color: transparent;
+    text-shadow:0 1px #000000;
+  }
+
+
+}
+
+
+#page-header {
+  background-color: #ccc;
+  background-image: url('@{images-path}@{images-header-bg}');
+  background-position: 0 20%;
+  background-size: 100% auto;
+  position: relative;
+  min-height: 150px;
+  > .container > #block-menu-menu-section-menu {
+    z-index: 2;
+    position: absolute;
+    bottom: 4px;
+    > ul.menu.nav {
+      display: inline;
+      > li {
+        float: left;
+        display: inline;
+      }
+      > li > a {
+          color: #fff;
+          background-color: #303133;
+          text-decoration: none;
+          margin-top: 9px;
+          margin-bottom: 1px;
+          text-transform: uppercase;
+          padding-bottom: 8px;
+          padding-top: 12px;
+      }
+      > li > a:hover,
+      > li > a:focus {
+          background-color: #46474a;
+      }
+      > li:not(:first-child) > a.active,
+      > li:not(:first-child) > a.active-trail {
+          margin-top: 0;
+          border-top: 1px solid #42bb12;
+          -webkit-box-shadow: inset 0px 18px 15px -13px rgba(50, 50, 50, 0.2);
+          -moz-box-shadow:    inset 0px 18px 15px -13px rgba(50, 50, 50, 0.2);
+          box-shadow:         inset 0px 18px 15px -13px rgba(50, 50, 50, 0.2);
+          padding-top: 18px;
+          padding-bottom: 11px;
+          border-top-right-radius: 5px;
+          -webkit-border-top-right-radius: 5px;
+          -moz-border-radius-topright: 5px;
+          border-top-left-radius: 5px;
+          -webkit-border-top-left-radius: 5px;
+          -moz-border-radius-topleft: 5px;
+          background-color: #44b30b;
+          margin-bottom: 0;
+      }
+      > li:not(:first-child) > a.active:hover,
+      > li:not(:first-child) > a.active:focus,
+      > li:not(:first-child) > a.active-trail:hover,
+      > li:not(:first-child) > a.active-trail:focus {
+          background-color: #53c40d;
+      }
+      > li.last > a {
+        border-top-right-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topright: 5px;
+      }
+      > li.first > a {
+        border-top-left-radius: 5px;
+        -webkit-border-top-left-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+      }
+    }
+  }
+  #region-header-border-1 {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    bottom: 4px;
+    background-color: #53c40e;
+    height: 1px;
+    > img {
+      height: 1px;
+    }
+  }
+  #region-header-border-2 {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    bottom: 0;
+    background-color: #44b30b;
+    height: 4px;
+    > img {
+      height: 4px;
+    }
+  }
+}
+
