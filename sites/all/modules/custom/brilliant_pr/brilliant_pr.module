@@ -258,7 +258,7 @@ function brilliant_pr_menu() {
     'type' => MENU_CALLBACK,
   );
   $items['entity/brilliant_pr_project/basic/%brilliant_pr_project/remove'] = array(
-    'title' => 'remove',
+    'title' => 'Remove',
     'page callback' => 'brilliant_pr_project_delete_once',
     'page arguments' => array(2),
     'weight' => -5,
@@ -294,7 +294,7 @@ function brilliant_pr_menu() {
   );
 //  delete all projects - access rights only for admin
   $items['entity/brilliant_pr_project/basic/delete_all'] = array(
-    'title' => 'delete all',
+    'title' => 'Delete all',
     'page callback' => 'brilliant_pr_project_delete_all_admin',
     'page arguments' => array(2),
     'weight' => -5,
