@@ -2703,3 +2703,14 @@ function brilliant_pr_user_view_alter(&$account, $view_mode, $langcode) {
   unset($account['summary']);
 }
 
+function brilliant_pr_theme() {
+  $items = array();
+
+  $items['user_register_form'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'yourtheme') . '/templates',
+    'template' => 'user-register-form',
+
+  );
+  return $items;
+}

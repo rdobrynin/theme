@@ -92,11 +92,9 @@ global $user;
     <?php endif; ?>
 
     <?php /* region--content.tpl.php */ ?>
-
-
-<div class="span12">Hello, <?php print get_name($user->uid);?></div>
-
-
+<?php if ($user->uid != 0):?>
+  <div class="span12">Hello, <?php print get_name($user->uid);?></div>
+    <?php endif; ?>
 
 <!--    --><?php //print render($page['content']); ?>
 
