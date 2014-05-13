@@ -24,6 +24,7 @@
  *
  * @ingroup themeable
  */
+global $user;
 ?>
 <?php if ($page['logo'] || $page['site_name'] || $page['primary_nav'] || $page['secondary_nav'] || $content): ?>
   <header<?php print $attributes; ?>>
@@ -53,6 +54,12 @@
         <?php print render($page['secondary_nav']); ?>
         <?php print $content; ?>
       </nav>
+  <?php if($user->uid == 0) {
+    print '<span class="pull-right">Login</span>';
+  }
+  ?>
+
+
     </div>
     <?php endif; ?>
     <?php if ($content_attributes): ?></div><?php endif; ?>

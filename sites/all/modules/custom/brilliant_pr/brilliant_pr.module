@@ -2794,3 +2794,7 @@ function brilliant_pr_form_user_login_block_alter(&$form) {
     );
   }
 }
+global $user;
+if(arg(0) =='' && $user->uid == 0) {
+  drupal_goto('entity/brilliant_pr_project');
+}
