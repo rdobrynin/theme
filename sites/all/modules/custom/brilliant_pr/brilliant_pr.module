@@ -2560,6 +2560,11 @@ class EntityBrilliantProjectBasicController
     return $entity;
   }
 
+  /**
+   * @param $entity
+   * @return mixed
+   */
+
   public function save($entity) {
     if (empty($entity->pid)) {
       $entity->created = time();
@@ -2584,9 +2589,18 @@ class EntityBrilliantProjectBasicController
     return $entity;
   }
 
+  /**
+   * @param $entity
+   */
+
   public function delete($entity) {
     $this->delete_multiple(array($entity));
   }
+
+  /**
+   * @param $entities
+   * @throws Exception
+   */
 
   public function delete_multiple($entities) {
     $pids = array();
@@ -2621,6 +2635,9 @@ class EntityBrilliantTaskBasicController
   extends DrupalDefaultEntityController
   implements EntityBrilliantTaskBasicControllerInterface {
 
+  /**
+   * @return stdClass
+   */
   public function create() {
     global $user;
     $entity = new stdClass();
@@ -2639,6 +2656,11 @@ class EntityBrilliantTaskBasicController
     $entity->uid = $user->uid;
     return $entity;
   }
+
+  /**
+   * @param $entity
+   * @return mixed
+   */
 
   public function save($entity) {
     if (empty($entity->tid)) {
@@ -2663,9 +2685,18 @@ class EntityBrilliantTaskBasicController
     return $entity;
   }
 
+  /**
+   * @param $entity
+   */
+
   public function delete($entity) {
     $this->delete_multiple(array($entity));
   }
+
+  /**
+   * @param $entities
+   * @throws Exception
+   */
 
   public function delete_multiple($entities) {
     $tids = array();
@@ -2751,9 +2782,10 @@ function brilliant_pr_form_user_login_block_alter(&$form) {
   // New sign up link, with 'cuter' text.
   if (variable_get('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL)) {
     $form['signup'] = array(
+      '#prefix' => '<div id="register_link">',
+      '#suffix' => '</div>',
       '#markup' => l(t('Register'), 'user/register', array(
         'attributes' => array(
-          'class' => 'btn-info btn',
           'id' => 'create-new-account',
           'title' => t('Create a new user account.')
         )
