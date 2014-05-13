@@ -2703,6 +2703,10 @@ function brilliant_pr_user_view_alter(&$account, $view_mode, $langcode) {
   unset($account['summary']);
 }
 
+/**
+ * @return array
+ * list of tpl files implemented
+ */
 function brilliant_pr_theme() {
   $items = array();
 
@@ -2712,5 +2716,49 @@ function brilliant_pr_theme() {
     'template' => 'user-register-form',
 
   );
+  $items['user_login'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'yourtheme') . '/templates',
+    'template' => 'user-login',
+  );
   return $items;
+}
+
+/**
+ * @param $form
+ * user login theming
+ */
+
+function brilliant_pr_form_user_login_block_alter(&$form) {
+  // Remove the links provided by Drupal.
+  unset($form['links']);
+  $form['actions']['submit']["#attributes"]['class'][] = 'btn-success';
+
+  // Set a weight for form actions so other elements can be placed
+  // beneath them.
+  $form['actions']['#weight'] = 5;
+
+  // Shorter, inline request new password link.
+  $form['actions']['request_password'] = array(
+    '#markup' => l(t('Lost password'), 'user/password', array(
+      'attributes' => array(
+        'class' => 'btn-info btn form-submit pull-right',
+        'title' => t('Request new password via e-mail.')
+      )
+    )),
+  );
+
+  // New sign up link, with 'cuter' text.
+  if (variable_get('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL)) {
+    $form['signup'] = array(
+      '#markup' => l(t('Register'), 'user/register', array(
+        'attributes' => array(
+          'class' => 'btn-info btn',
+          'id' => 'create-new-account',
+          'title' => t('Create a new user account.')
+        )
+      )),
+      '#weight' => 10,
+    );
+  }
 }
