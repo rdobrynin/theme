@@ -8,6 +8,7 @@
  * Overrides theme_menu_link().
  */
 function brilliant_pr_menu_link(array $variables) {
+  global $user;
   $element = $variables['element'];
   $sub_menu = '';
   if ($element['#below']) {
@@ -54,7 +55,7 @@ function brilliant_pr_menu_link(array $variables) {
   }
   if($element["#theme"] == 'menu_link__user_menu'){
     if($element["#href"] == 'user'){
-      $element['#title'] = _bootstrap_icon('user').' '.$element['#title'];
+      $element['#title'] = _bootstrap_icon('user').' '.get_name($user->uid);
     }
     if($element["#href"] == 'user/logout'){
       $element['#title'] = _bootstrap_icon('log-out').' '.$element['#title'];

@@ -33,19 +33,25 @@
  *
  * @ingroup themeable
  */     
-var_dump($user_profile);
+
 
 ?>
-<div class="profile"<?php print $attributes; ?>>
+
+<div <?php print $attributes; ?>>
   <div class="row-fluid">
     <div class="span8">
-      <?php print render($user_profile["field_first_name"]); ?>
+      <div class="brilliant_pr_profile_line"><span><?php print t('Name');?></span> <?php print (!empty($user_profile["field_first_name"]['#object']->field_first_name[LANGUAGE_NONE][0]['value'])? $user_profile["field_first_name"]['#object']->field_first_name[LANGUAGE_NONE][0]['value']:'').' '.(!empty($user_profile["field_last_name"]['#object']->field_last_name[LANGUAGE_NONE][0]['value']) ? $user_profile["field_last_name"]['#object']->field_last_name[LANGUAGE_NONE][0]['value'] : '');?>
+      </div>
+
+      <div class="brilliant_pr_profile_line"><span><?php print t('Email');?></span> <?php print (!empty($user_profile["field_last_name"]['#object']->mail)? $user_profile["field_last_name"]['#object']->mail:'');?>
+      </div>
+
+      <div class="brilliant_pr_profile_line"><span><?php print t('User name');?></span> <?php print (!empty($user_profile["field_last_name"]['#object']->name)? $user_profile["field_first_name"]['#object']->name:'');?>
+      </div>
     </div>
-    <div class="span8">
-      <?php print render($user_profile["field_last_name"]); ?>
-    </div>
-    <div class="span8">
-      <?php print render($user_profile["name"]); ?>
+    <div class="span4 text-right">
+      <?php print render($user_profile["user_picture"]); ?>
+
     </div>
   </div>
 </div>
