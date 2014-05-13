@@ -82,7 +82,6 @@
 
   <?php /* region--header.tpl.php */ ?>
   <?php print render($page['header']); ?>
-  <?php print render($page['header']); ?>
 
   <div class="row">
 
