@@ -2897,6 +2897,11 @@ function brilliant_pr_form_alter(&$form, &$form_state, $form_id) {
     $form['dead_time']['#size'] = 25;
     $form['opt_time']['#size'] = 25;
   }
+  if ($form_id == 'user_profile_form') {
+    $form['field_first_name'][LANGUAGE_NONE]['#title'] = t('Name');
+    $form['field_last_name'][LANGUAGE_NONE]['#title'] = t('Last name');
+    $form['account']['name']['#title_display'] = 'invisible';
+  }
   if($form_id == 'user_register_form') {
 //    dsm($form);
   }
