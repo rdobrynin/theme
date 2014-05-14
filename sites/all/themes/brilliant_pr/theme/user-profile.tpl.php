@@ -37,9 +37,12 @@
 
 ?>
 
-<div <?php print $attributes; ?>>
-  <div class="row-fluid">
-    <div class="span8">
+
+
+
+<div>
+  <div class="row">
+    <div class="col-lg-8">
       <div class="brilliant_pr_profile_line"><span><?php print t('Name');?></span> <?php print (!empty($user_profile["field_first_name"]['#object']->field_first_name[LANGUAGE_NONE][0]['value'])? $user_profile["field_first_name"]['#object']->field_first_name[LANGUAGE_NONE][0]['value']:'').' '.(!empty($user_profile["field_last_name"]['#object']->field_last_name[LANGUAGE_NONE][0]['value']) ? $user_profile["field_last_name"]['#object']->field_last_name[LANGUAGE_NONE][0]['value'] : '');?>
       </div>
 
@@ -49,9 +52,9 @@
       <div class="brilliant_pr_profile_line"><span><?php print t('User name');?></span> <?php print (!empty($user_profile["field_last_name"]['#object']->name)? $user_profile["field_first_name"]['#object']->name:'');?>
       </div>
     </div>
-    <div class="span4 text-right">
+    <div class="col-lg-4 text-right">
       <?php print render($user_profile["user_picture"]); ?>
-
     </div>
+    </div>
+
   </div>
-</div>
