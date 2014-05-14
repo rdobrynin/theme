@@ -2768,6 +2768,11 @@ function brilliant_pr_theme() {
     'path' => drupal_get_path('theme', 'brilliant_pr') . '/theme/form',
     'template' => 'brilliant-pr-project',
   );
+  $items['brilliant_pr_task_form'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'brilliant_pr') . '/theme/form',
+    'template' => 'brilliant-pr-task',
+  );
   return $items;
 }
 
@@ -2868,9 +2873,26 @@ function brilliant_pr_form_alter(&$form, &$form_state, $form_id) {
     $form['dead_time']['#size'] = 25;
     $form['opt_time']['#size'] = 25;
   }
+  if ($form_id == 'brilliant_pr_task_form') {
+    $form['title']['#title_display'] = 'invisible';
+    $form['title']['#title'] = t('Task name');
+    $form['ref']['#title_display'] = 'invisible';
+    $form['ref']['#title'] = t('Project ref');
+    $form['description']['#title_display'] = 'invisible';
+    $form['description']['#title'] = t('Description');
+    $form['curator']['#title_display'] = 'invisible';
+    $form['curator']['#title'] = t('Curator');
+    $form['implementor']['#title_display'] = 'invisible';
+    $form['implementor']['#title'] = t('Implementor');
+
+    $form['opt_time']['#title_display'] = 'invisible';
+    $form['opt_time']['#title'] = t('Optimal date');
+    $form['dead_time']['#title_display'] = 'invisible';
+    $form['dead_time']['#title'] = t('Deadline date');
+    $form['dead_time']['#size'] = 25;
+    $form['opt_time']['#size'] = 25;
+  }
   if($form_id == 'user_register_form') {
 //    dsm($form);
   }
 }
-
-
