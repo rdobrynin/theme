@@ -1,5 +1,5 @@
 
-<?php dsm($form);
+<?php
 $form['opt_time']['date']['#title'] = 'Optimal date/time';
 $form['dead_time']['date']['#title'] = 'Deadline date/time';
 hide($form['submit']);
@@ -19,7 +19,6 @@ hide($form['cancel']);
           <?php print render($form['title']); ?>
         </div>
       </div>
-
       <div class="row">
         <div class="col-lg-2">
           <span class="field-title"><?php print render($form['description']['#title']); ?></span>
@@ -28,10 +27,7 @@ hide($form['cancel']);
           <?php print render($form['description']); ?>
         </div>
       </div>
-
-
       <div class="division">
-
       <div class="row">
         <div class="col-lg-2">
           <span class="field-title"><?php print render($form['company']['#title']); ?>&nbsp;<span class="required-note">*</span></span>
@@ -93,8 +89,6 @@ hide($form['cancel']);
       </div>
 
     </fieldset>
-
-
   </div>
 </div>
 
