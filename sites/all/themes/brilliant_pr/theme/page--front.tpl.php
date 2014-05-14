@@ -92,11 +92,11 @@ global $user;
     <?php endif; ?>
 
     <?php /* region--content.tpl.php */ ?>
-<?php if ($user->uid != 0):?>
-  <div class="span12">Hello, <?php print get_name($user->uid);?></div>
-    <?php endif; ?>
+<?php //if ($user->uid != 0):?>
+<!--  <div class="span12">Hello, --><?php //print get_name($user->uid);?><!--</div>-->
+<!--    --><?php //endif; ?>
 
-<!--    --><?php //print render($page['content']); ?>
+    <?php print render($page['content']); ?>
 
     <?php /* region--sidebar.tpl.php */ ?>
     <?php if ($page['sidebar_second']): ?>
