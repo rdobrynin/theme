@@ -2773,6 +2773,11 @@ function brilliant_pr_theme() {
     'path' => drupal_get_path('theme', 'brilliant_pr') . '/theme/form',
     'template' => 'brilliant-pr-task',
   );
+  $items['user_profile_form'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'brilliant_pr') . '/theme/form',
+    'template' => 'user-profile-form',
+  );
   return $items;
 }
 
