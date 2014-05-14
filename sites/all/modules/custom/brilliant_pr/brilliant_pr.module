@@ -2744,28 +2744,28 @@ function brilliant_pr_theme() {
 
   $items['user_register_form'] = array(
     'render element' => 'form',
-    'path' => drupal_get_path('theme', 'brilliant_pr') . '/theme',
+    'path' => drupal_get_path('theme', 'brilliant_pr') . '/theme/form',
     'template' => 'user-register-form',
 
   );
   $items['user_login'] = array(
     'render element' => 'form',
-    'path' => drupal_get_path('theme', 'brilliant_pr') . '/theme',
+    'path' => drupal_get_path('theme', 'brilliant_pr') . '/theme/form',
     'template' => 'user-login',
   );
   $items['user_pass'] = array(
     'render element' => 'form',
-    'path' => drupal_get_path('theme', 'brilliant_pr') . '/theme',
+    'path' => drupal_get_path('theme', 'brilliant_pr') . '/theme/form',
     'template' => 'user-pass',
   );
   $items['user_login_block'] = array(
     'render element' => 'form',
-    'path' => drupal_get_path('theme', 'brilliant_pr') . '/theme',
+    'path' => drupal_get_path('theme', 'brilliant_pr') . '/theme/form',
     'template' => 'user-login-block',
   );
   $items['brilliant_pr_project_form'] = array(
     'render element' => 'form',
-    'path' => drupal_get_path('theme', 'brilliant_pr') . '/theme',
+    'path' => drupal_get_path('theme', 'brilliant_pr') . '/theme/form',
     'template' => 'brilliant-pr-project',
   );
   return $items;
