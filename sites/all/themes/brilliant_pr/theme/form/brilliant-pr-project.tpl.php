@@ -1,5 +1,6 @@
 
 <?php
+dsm($form);
 $form['opt_time']['date']['#title'] = 'Optimal date/time';
 $form['dead_time']['date']['#title'] = 'Deadline date/time';
 hide($form['submit']);
@@ -74,20 +75,26 @@ hide($form['cancel']);
           </div>
         </div>
       </div>
-      <div class="division">
-      <?php print drupal_render_children($form); ?>
-</div>
+
+      <?php
+      if (!empty($form['status'][0]) || !empty($form['status'][1]) || !empty($form['status'][2]) || !empty($form['status'][3]) || !empty($form['status'][4]) || !empty($form['status'][5])) {
+        print_r(' <div class="division">');
+        print drupal_render_children($form);
+        print_r('</div>');
+      }
+      else {
+        print drupal_render_children($form);
+      }
+      ?>
+
       <div class="division">
         <div class="row">
           <div class="col-lg-12 text-right">
             <span class="field-title"><?php print render($form['submit']); ?><?php print render($form['submit_task']); ?>
               <?php print render($form['delete']); ?><?php print render($form['cancel']); ?></span>
-
           </div>
-
         </div>
       </div>
-
     </fieldset>
   </div>
 </div>
