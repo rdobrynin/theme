@@ -2861,6 +2861,12 @@ function brilliant_pr_form_alter(&$form, &$form_state, $form_id) {
     $form['company']['#title'] = t('Client');
     $form['curator']['#title_display'] = 'invisible';
     $form['curator']['#title'] = t('Curator');
+    $form['opt_time']['#title_display'] = 'invisible';
+    $form['opt_time']['#title'] = t('Optimal date/time');
+    $form['dead_time']['#title_display'] = 'invisible';
+    $form['dead_time']['#title'] = t('Deadline date/time');
+    $form['dead_time']['#size'] = 25;
+    $form['opt_time']['#size'] = 25;
   }
   if($form_id == 'user_register_form') {
 //    dsm($form);

@@ -1,18 +1,16 @@
 
 <?php dsm($form);
-
-
-
-
+$form['opt_time']['date']['#title'] = 'Optimal date/time';
+$form['dead_time']['date']['#title'] = 'Deadline date/time';
+hide($form['submit']);
+hide($form['submit_task']);
+hide($form['delete']);
+hide($form['cancel']);
 ?>
 
 <div class="row-fluid rtapi-profile-form">
   <div class="span8">
     <fieldset>
-      <legend></legend>
-
-
-
       <div class="row">
         <div class="col-lg-2">
           <span class="field-title"><?php print render($form['title']['#title']); ?>&nbsp;<span class="required-note">*</span></span>
@@ -61,25 +59,42 @@
       </div>
         <div class="row">
           <div class="col-lg-2">
-            <button class="btn btn-success">Add new contact person</button>
+            <button class="btn btn-success" disabled="disabled">Add new contact person</button>
           </div>
 
         </div>
       </div> <!--   end of division   -->
 
 
+      <div class="division">
+        <div class="row">
+          <div class="col-lg-3">
+            <span
+              class="field-title"><?php print render($form['opt_time']); ?></span>
+          </div>
+          <div class="col-lg-3">
+            <span
+              class="field-title"><?php print render($form['dead_time']); ?></span>
+          </div>
+        </div>
+      </div>
+      <div class="division">
+      <?php print drupal_render_children($form); ?>
+</div>
+      <div class="division">
+        <div class="row">
+          <div class="col-lg-12 text-right">
+            <span class="field-title"><?php print render($form['submit']); ?><?php print render($form['submit_task']); ?>
+              <?php print render($form['delete']); ?><?php print render($form['cancel']); ?></span>
 
+          </div>
 
-
-
+        </div>
+      </div>
 
     </fieldset>
 
 
   </div>
-  <div class="span4">
-    <?php print render($form['picture']); ?>
-  </div>
 </div>
 
-<?php print drupal_render_children($form); ?>
