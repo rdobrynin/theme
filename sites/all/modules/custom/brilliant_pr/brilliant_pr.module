@@ -1184,7 +1184,7 @@ function brilliant_pr_project_form($form, &$form_state, $entity) {
       '#description' => t('Project data description'),
       '#default_value' => isset($entity->description) ? $entity->description : '',
       '#cols' => 60,
-      '#rows' => 5,
+      '#rows' => 10,
       '#required' => FALSE,
       '#weight' => -90,
     );
@@ -2847,6 +2847,20 @@ function brilliant_pr_form_alter(&$form, &$form_state, $form_id) {
     $form['name']['#title'] = _bootstrap_icon('user') . ' ' . 'Username';
     $form['pass']['#title'] = _bootstrap_icon('lock') . ' ' . 'Password';
     $form['actions']['submit']['#attributes']['class'][] = 'login-front';
+  }
+
+//  project form
+  if ($form_id == 'brilliant_pr_project_form') {
+    $form['title']['#title_display'] = 'invisible';
+    $form['title']['#title'] = t('Project name');
+    $form['description']['#title_display'] = 'invisible';
+    $form['description']['#title'] = t('Description');
+    $form['customer_name']['#title'] = t('Contact person');
+    $form['customer_name']['#title_display'] = 'invisible';
+    $form['company']['#title_display'] = 'invisible';
+    $form['company']['#title'] = t('Client');
+    $form['curator']['#title_display'] = 'invisible';
+    $form['curator']['#title'] = t('Curator');
   }
   if($form_id == 'user_register_form') {
 //    dsm($form);
