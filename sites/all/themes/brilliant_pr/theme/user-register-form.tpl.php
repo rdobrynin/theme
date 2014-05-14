@@ -11,12 +11,10 @@ $form['actions']['submit']["#attributes"]['class'][] = 'btn-success';
     </div>
 
   <div class="row p-top">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
       <?php print render($form['account']['mail']); ?>
     </div>
-  </div>
-  <div class="row p-top">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
       <?php print render($form['account']['name']); ?>
     </div>
   </div>

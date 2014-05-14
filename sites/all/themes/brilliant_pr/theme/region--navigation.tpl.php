@@ -54,10 +54,10 @@ global $user;
         <?php print render($page['secondary_nav']); ?>
         <?php print $content; ?>
       </nav>
-  <?php if($user->uid == 0) {
-    print '<span class="pull-right">Login</span>';
-  }
-  ?>
+<!--  --><?php //if($user->uid == 0) {
+//    print '<span class="pull-right">Login</span>';
+//  }
+//  ?>
 
 
     </div>

@@ -2773,7 +2773,7 @@ function brilliant_pr_form_user_login_block_alter(&$form) {
   $form['actions']['request_password'] = array(
     '#markup' => l(t('Lost password'), 'user/password', array(
       'attributes' => array(
-        'class' => 'btn-info btn form-submit pull-right',
+        'class' => 'btn-info btn form-submit pull-right login-front',
         'title' => t('Request new password via e-mail.')
       )
     )),
@@ -2794,7 +2794,50 @@ function brilliant_pr_form_user_login_block_alter(&$form) {
     );
   }
 }
+
+/**
+ * @param $form
+ */
+
+
+function brilliant_pr_form_user_register_form_alter(&$form) {
+  // Remove the links provided by Drupal.
+  unset($form['links']);
+  $form['actions']['submit']["#attributes"]['class'][] = 'btn-success';
+
+  // Set a weight for form actions so other elements can be placed
+  // beneath them.
+  $form['actions']['#weight'] = 5;
+
+
+
+
+}
+
+// redirect to projects if no user
 global $user;
 if(arg(0) =='' && $user->uid == 0) {
   drupal_goto('entity/brilliant_pr_project');
 }
+/**
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ */
+
+function brilliant_pr_form_alter(&$form, &$form_state, $form_id) {
+  if ( TRUE === in_array( $form_id, array( 'user_login', 'user_login_block') ) ) {
+    $form['name']['#attributes']['placeholder'] = t( 'Username' );
+  $form['pass']['#attributes']['placeholder'] = t( 'Password' );
+  }
+  if($form_id == 'user_login_block') {
+    $form['name']['#title'] = _bootstrap_icon('user') . ' ' . 'Username';
+    $form['pass']['#title'] = _bootstrap_icon('lock') . ' ' . 'Password';
+    $form['actions']['submit']['#attributes']['class'][] = 'login-front';
+  }
+  if($form_id == 'user_register_form') {
+    dsm($form);
+  }
+}
+
+

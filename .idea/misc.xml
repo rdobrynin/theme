@@ -16,9 +16,6 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/sites/all/themes/brilliant_pr/theme/block/block-user-login.tpl.php" />
-  </component>
   <component name="ProjectRootManager" version="2" />
   <component name="masterDetails">
     <states>
