@@ -2752,6 +2752,16 @@ function brilliant_pr_theme() {
     'path' => drupal_get_path('theme', 'yourtheme') . '/templates',
     'template' => 'user-login',
   );
+  $items['user_pass'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'yourtheme') . '/templates',
+    'template' => 'user-pass',
+  );
+  $items['user_login_block'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'yourtheme') . '/templates',
+    'template' => 'user-login-block',
+  );
   return $items;
 }
 
@@ -2764,7 +2774,6 @@ function brilliant_pr_form_user_login_block_alter(&$form) {
   // Remove the links provided by Drupal.
   unset($form['links']);
   $form['actions']['submit']["#attributes"]['class'][] = 'btn-success';
-
   // Set a weight for form actions so other elements can be placed
   // beneath them.
   $form['actions']['#weight'] = 5;
@@ -2773,7 +2782,7 @@ function brilliant_pr_form_user_login_block_alter(&$form) {
   $form['actions']['request_password'] = array(
     '#markup' => l(t('Lost password'), 'user/password', array(
       'attributes' => array(
-        'class' => 'btn-info btn form-submit pull-right login-front',
+        'class' => 'btn-info btn form-submit login-front',
         'title' => t('Request new password via e-mail.')
       )
     )),
@@ -2782,11 +2791,12 @@ function brilliant_pr_form_user_login_block_alter(&$form) {
   // New sign up link, with 'cuter' text.
   if (variable_get('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL)) {
     $form['signup'] = array(
-      '#prefix' => '<div id="register_link">',
-      '#suffix' => '</div>',
+      '#prefix' => '<span id="register_link">',
+      '#suffix' => '</span>',
       '#markup' => l(t('Register'), 'user/register', array(
         'attributes' => array(
           'id' => 'create-new-account',
+          'class' => 'btn-info btn form-submit login-front',
           'title' => t('Create a new user account.')
         )
       )),
@@ -2809,15 +2819,12 @@ function brilliant_pr_form_user_register_form_alter(&$form) {
   // beneath them.
   $form['actions']['#weight'] = 5;
 
-
-
-
 }
 
 // redirect to projects if no user
 global $user;
 if(arg(0) =='' && $user->uid == 0) {
-  drupal_goto('entity/brilliant_pr_project');
+//  drupal_goto('entity/brilliant_pr_project');
 }
 /**
  * @param $form
@@ -2836,7 +2843,7 @@ function brilliant_pr_form_alter(&$form, &$form_state, $form_id) {
     $form['actions']['submit']['#attributes']['class'][] = 'login-front';
   }
   if($form_id == 'user_register_form') {
-    dsm($form);
+//    dsm($form);
   }
 }
 

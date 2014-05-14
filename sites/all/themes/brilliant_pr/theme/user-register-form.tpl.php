@@ -1,5 +1,5 @@
 <?php
-$form['actions']['submit']["#attributes"]['class'][] = 'btn-success';
+$form['actions']['submit']["#attributes"]['class'][] = 'btn-success btn-max';
 ?>
     <div class="row p-top">
       <div class="col-lg-6">
